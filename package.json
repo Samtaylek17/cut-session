@@ -1,0 +1,26 @@
+{
+	"name": "cut-session",
+	"version": "1.0.0",
+	"description": "You are a senior software engineer working for a big tech company in Germany. You love it, but you are far from home in Nigeria where most of your family, including your younger sister lives. She’s currently in Uyo to help a friend as a wedding planner and now needs to scout for studios for the pre-wedding photo session.",
+	"main": "server.js",
+	"repository": "git@github.com:Samtaylek17/cut-session.git",
+	"author": "Temitayo Ogunsusi",
+	"license": "MIT",
+	"scripts": {
+		"build": "yarn tsc",
+		"start": "ts-node server.ts",
+		"client": "yarn --cwd frontend dev",
+		"dev": "concurrently \"yarn client\" \"nodemon server.ts\""
+	},
+	"devDependencies": {
+		"@types/express": "^4.17.14",
+		"@types/node": "^18.11.11",
+		"concurrently": "^7.6.0",
+		"nodemon": "^2.0.20",
+		"ts-node": "^10.9.1",
+		"typescript": "^4.9.3"
+	},
+	"dependencies": {
+		"express": "^4.18.2"
+	}
+}
