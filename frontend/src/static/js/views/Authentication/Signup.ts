@@ -3,6 +3,7 @@ import AbstractView from '../AbstractView';
 export default class extends AbstractView {
 	state: any;
 	form: any;
+
 	constructor(params: any) {
 		super(params);
 		this.setTitle('Signup');
@@ -54,9 +55,15 @@ export default class extends AbstractView {
               Signup
             </button>
           </div>
-          <p class="mt-4">
-            <a class="form__link text-blue-500 link-merchant" href="./signup">Signup as a Mechant</a>
+          <p class="mt-4 text-center">
+          Are you a merchant?
+            <a class="form__link text-blue-500 link-merchant" href="./signup">Signup here</a>
           </p>
+          <div class="mt-6">
+            <p class="text-center">Already have an account?
+              <a class="text-blue-500" href="/login" data-link>Login here</a>
+            </p>
+          </div>
         </form>
 
 
@@ -98,10 +105,17 @@ export default class extends AbstractView {
               Signup
             </button>
           </div>
-          <p class="mt-4">
-            <a class="form__link text-blue-500 link-user" href="./signup">Signup as a User</a>
+          <p class="mt-4 text-center">
+          Are you a user?
+            <a class="form__link text-blue-500 link-user" href="./signup">Signup here</a>
           </p>
+          <div class="mt-6">
+            <p class="text-center">Already have an account?
+              <a class="text-blue-500" href="/login" data-link>Login here</a>
+            </p>
+          </div>
         </form>
+        
       </section> 
     `;
 	}
