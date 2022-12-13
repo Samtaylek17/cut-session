@@ -1,4 +1,4 @@
-import Dashboard from './views/Dashboard';
+import Dashboard from './views/Dashboard/Dashboard';
 import Posts from './views/Posts';
 import Post from './views/Post';
 import Login from './views/Authentication/Login';
@@ -17,7 +17,7 @@ const pathToRegex = (path: string) => new RegExp('^' + path.replace(/\//g, '\\/'
  * @param match - { route: { path: string; view: typeof Dashboard }; result: RegExpMatchArray | null }
  * @returns An object with the keys and values of the route params.
  */
-const getParams = (match: { route: { path: string; view: typeof Dashboard }; result: RegExpMatchArray | null }) => {
+const getParams = (match: { route: { path: string; view: any }; result: RegExpMatchArray | null }) => {
 	const values = match!.result!.slice(1);
 	const keys = Array.from(match!.route.path.matchAll(/:(\w+)/g)).map((result) => result[1]);
 

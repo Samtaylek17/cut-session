@@ -1,4 +1,5 @@
 import AbstractView from '../AbstractView';
+import Protected from './Protected';
 
 export default class extends AbstractView {
 	constructor(params: any) {

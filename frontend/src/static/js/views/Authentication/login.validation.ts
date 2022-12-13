@@ -1,4 +1,20 @@
+/* Checking if the current page is the login page. */
 if (window.location.pathname.includes('/login')) {
+	/**
+	 * "Set the form message element's text content to the message argument, remove the success and error
+	 * classes from the message element, and add the type argument as a class to the message element."
+	 *
+	 * The function takes three arguments:
+	 *
+	 * formElement: The form element.
+	 * type: The type of message.
+	 * message: The message to display.
+	 * The function uses the formElement argument to get the form message element. It then sets the
+	 * message element's text content to the message argument
+	 * @param {Element | null} formElement - The form element that we want to set the message for.
+	 * @param {string} type - The type of message to display. This can be either 'success' or 'error'.
+	 * @param {any} message - The message to display.
+	 */
 	function setFormMessage(formElement: Element | null, type: string, message: any) {
 		const messageElement = formElement!.querySelector('.form__message');
 
@@ -8,6 +24,11 @@ if (window.location.pathname.includes('/login')) {
 		messageElement!.classList.add(`form__message--${type}`);
 	}
 
+	/**
+	 * It adds a class to an input element and sets the text content of an element.
+	 * @param inputElement - {
+	 * @param {any} message - string
+	 */
 	function setInputError(
 		inputElement: {
 			classList: { add: (arg0: string) => void };
@@ -19,6 +40,10 @@ if (window.location.pathname.includes('/login')) {
 		inputElement.parentElement.querySelector('.form__input-error-message').textContent = message;
 	}
 
+	/**
+	 * It removes the red border and error message from an input element
+	 * @param {Element} inputElement - The input element that we want to clear the error message from.
+	 */
 	function clearInputError(inputElement: Element) {
 		inputElement!.classList.remove('text-red-500');
 		inputElement!.parentElement!.querySelector('.form__input-error-message')!.textContent = '';
@@ -27,6 +52,7 @@ if (window.location.pathname.includes('/login')) {
 	document.addEventListener('DOMContentLoaded', () => {
 		const loginForm = document.querySelector('#loginForm');
 
+		/* The above code is a login form that is using the fetch API to send a POST request to the server. */
 		loginForm!.addEventListener('submit', (e) => {
 			e.preventDefault();
 
@@ -47,8 +73,8 @@ if (window.location.pathname.includes('/login')) {
 				.then((response) => response.json())
 				.then((response) => {
 					if (response.token) {
-						window.localStorage.setItem('token', response.token);
-						window.localStorage.setItem('user', response.userId);
+						const userData = JSON.stringify(response);
+						window.localStorage.setItem('user', userData);
 						window.location.replace('/');
 					} else {
 						setFormMessage(loginForm, 'error', response.message);
