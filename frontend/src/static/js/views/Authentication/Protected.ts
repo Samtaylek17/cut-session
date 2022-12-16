@@ -1,3 +1,10 @@
+interface IUser {
+	merchantId: string;
+	token: string;
+	userId: string;
+	accessType: 'USER' | 'MERCHANT';
+}
+
 class Protected {
 	constructor() {
 		document.querySelector('#app')!.innerHTML = '';
@@ -5,7 +12,7 @@ class Protected {
 		this.validateAuth(JSON.parse(user as string));
 	}
 
-	validateAuth(user: { merchantId: string; token: string; userId: string }) {
+	validateAuth(user: IUser) {
 		if (user === null || !user.token || user.token === null) {
 			window.location.replace('/login');
 		}

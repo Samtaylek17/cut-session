@@ -1,8 +1,11 @@
 import Dashboard from './views/Dashboard/Dashboard';
-import Posts from './views/Posts';
-import Post from './views/Post';
 import Login from './views/Authentication/Login';
 import Signup from './views/Authentication/Signup';
+import Merchant from './views/Merchant/index';
+import User from './views/User/Studio';
+import Studios from './views/User/Studios';
+import Studio from './views/User/Studio';
+import CreateSession from './views/Merchant/CreateSession';
 
 /**
  * It takes a path like `/users/:id` and returns a regular expression that matches `/users/123` but not
@@ -28,7 +31,7 @@ const getParams = (match: { route: { path: string; view: any }; result: RegExpMa
 	);
 };
 
-const navigateTo = (url: string | URL | null | undefined) => {
+export const navigateTo = (url: string | URL | null | undefined) => {
 	history.pushState(null, '', url);
 	router();
 };
@@ -36,10 +39,12 @@ const navigateTo = (url: string | URL | null | undefined) => {
 const router = async () => {
 	const routes = [
 		{ path: '/', view: Dashboard },
-		{ path: '/posts', view: Posts },
-		{ path: '/posts/:id', view: Post },
 		{ path: '/signup', view: Signup },
 		{ path: '/login', view: Login },
+		{ path: '/user', view: Studios },
+		{ path: '/user/studio/:merchantId', view: Studio },
+		{ path: '/merchant', view: Merchant },
+		{ path: '/merchant/create', view: CreateSession },
 	];
 
 	// Test each route for potential match

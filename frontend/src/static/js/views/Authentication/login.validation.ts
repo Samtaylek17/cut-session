@@ -35,6 +35,7 @@ if (window.location.pathname.includes('/login')) {
 			parentElement: { querySelector: (arg0: string) => { (): any; new (): any; textContent: any } };
 		},
 		message: any
+		/* It's an array of objects that contain the path and the view. */
 	) {
 		inputElement.classList.add('text-red-500');
 		inputElement.parentElement.querySelector('.form__input-error-message').textContent = message;
@@ -73,9 +74,11 @@ if (window.location.pathname.includes('/login')) {
 				.then((response) => response.json())
 				.then((response) => {
 					if (response.token) {
-						const userData = JSON.stringify(response);
+						const userData = JSON.stringify({ accessType, ...response });
 						window.localStorage.setItem('user', userData);
-						window.location.replace('/');
+						const url = new URL(window.location.href);
+						const nextRoute = url.searchParams.get('redirect') || '/';
+						window.location.replace(nextRoute);
 					} else {
 						setFormMessage(loginForm, 'error', response.message);
 					}
@@ -86,3 +89,14 @@ if (window.location.pathname.includes('/login')) {
 		});
 	});
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+	const logoutBtn = document.querySelector('#logout-btn');
+
+	if (logoutBtn) {
+		logoutBtn!.addEventListener('click', (e) => {
+			localStorage.removeItem('user');
+			window.location.replace(`/login?redirect=${window.location.href.replace(window.location.origin, '')}`);
+		});
+	}
+});

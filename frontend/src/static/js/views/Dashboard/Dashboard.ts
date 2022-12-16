@@ -28,7 +28,7 @@ export default class extends AbstractView {
 
 			const userData = users.data.map((user: any) => {
 				return `
-						<div class="flex flex-col gap-2 border p-4 rounded-md shadow-md">
+						<a href="/studio/${user.merchantId}" class="flex flex-col gap-2 border p-4 rounded-md shadow-md" data-link>
 							<div class="flex gap-2">
 		 						<h6>Name: </h6>
 		 						<p class="capitalize">${user.name}</p>
@@ -41,13 +41,13 @@ export default class extends AbstractView {
 		 						<h6>Phone Number: </h6>
 		 						<p class="">${user.phoneNumber}</p>
 		 					</div>
-		 				</div>
+		 				</a>
 		 			`;
 			});
 
 			const merchantData = merchants.data.map((merchant: any) => {
 				return `
-						<div class="flex flex-col gap-2 border p-4 rounded-md shadow-md">
+						<a href="/studio/${merchant.merchantId}" class="flex flex-col gap-2 border p-4 rounded-md shadow-md" data-link>
 							<div class="flex gap-2">
 		 						<h6>Name: </h6>
 		 						<p class="capitalize">${merchant.name}</p>
@@ -60,7 +60,7 @@ export default class extends AbstractView {
 		 						<h6>Phone Number: </h6>
 		 						<p class="">${merchant.phoneNumber}</p>
 		 					</div>
-		 				</div>
+		 				</a>
 		 			`;
 			});
 

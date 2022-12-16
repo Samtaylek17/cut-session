@@ -12,5 +12,3 @@ export default class AbstractView {
 		return '';
 	}
 }
-
-// export { AbstractView as default };

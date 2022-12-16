@@ -20,7 +20,7 @@ export default class extends AbstractView {
 				</div>
 				<div class="mt-4 flex flex-col gap-[1px]">
 					<label for="password" class="text-sm text-gray-800 mb-4">Password</label>
-					<input type="text" name="password" id="password" placeholder="......." class="w-full p-3 border rounded-lg form__input placeholder:text-3xl" />
+					<input type="password" name="password" id="password" placeholder="......." class="w-full p-3 border rounded-lg form__input placeholder:text-3xl" />
 					<span class="form__input-error-message text-red-500 text-sm"></span>
 				</div>
 				<div class="mt-4">
