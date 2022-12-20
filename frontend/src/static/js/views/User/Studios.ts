@@ -54,8 +54,8 @@ class User extends AbstractView {
                   <h6 class="capitalize">${merchant.name}</h6>
                   <h6 class="capitalize">${merchant.cityOfOperation}</h6>
                 </div>
-                <div class="flex justify-between">
-                  <p class="capitalize text-slate-600 text-sm italic">${merchant.email}</p>
+                <div class="flex flex-col sm:flex-row justify-between">
+                  <p class="capitalize text-slate-600 text-sm italic truncate">${merchant.email}</p>
                   <p class="capitalize text-slate-600 text-sm italic">${merchant.phoneNumber}</p>
                 </div>
               </a>

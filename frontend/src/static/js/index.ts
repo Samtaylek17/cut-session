@@ -2,9 +2,9 @@ import Dashboard from './views/Dashboard/Dashboard';
 import Login from './views/Authentication/Login';
 import Signup from './views/Authentication/Signup';
 import Merchant from './views/Merchant/index';
-import User from './views/User/Studio';
 import Studios from './views/User/Studios';
 import Studio from './views/User/Studio';
+import Booking from './views/Bookings/Book';
 import CreateSession from './views/Merchant/CreateSession';
 
 /**
@@ -45,6 +45,7 @@ const router = async () => {
 		{ path: '/user/studio/:merchantId', view: Studio },
 		{ path: '/merchant', view: Merchant },
 		{ path: '/merchant/create', view: CreateSession },
+		{ path: '/session/:sessionId/book', view: Booking },
 	];
 
 	// Test each route for potential match
